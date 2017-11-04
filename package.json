@@ -1,0 +1,9 @@
+{
+  "name": "casee",
+  "version": "0.0.1",
+  "description": "Can see for react",
+  "main": "src/index.js",
+  "repository": "https://github.com/edonet/casee.git",
+  "author": "edoner <edonet@163.com>",
+  "license": "MIT"
+}
