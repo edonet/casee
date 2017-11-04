@@ -1,9 +1,9 @@
 {
-    "name": "casee",
+    "name": "sigo",
     "version": "0.0.1",
-    "description": "Can see for react",
+    "description": "UI for react",
     "main": "lib/index.js",
-    "repository": "https://github.com/edonet/casee.git",
+    "repository": "https://github.com/edonet/sigo.git",
     "author": "edoner <edonet@163.com>",
     "license": "MIT",
     "bin": {
