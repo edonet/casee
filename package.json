@@ -2,10 +2,13 @@
     "name": "casee",
     "version": "0.0.1",
     "description": "Can see for react",
-    "main": "src/index.js",
+    "main": "lib/index.js",
     "repository": "https://github.com/edonet/casee.git",
     "author": "edoner <edonet@163.com>",
     "license": "MIT",
+    "bin": {
+        "casee": "scripts/index.js"
+    },
     "dependencies": {
         "funal": "^0.0.1",
         "react": "^16.0.0",
