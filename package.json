@@ -7,12 +7,12 @@
     "author": "edoner <edonet@163.com>",
     "license": "MIT",
     "bin": {
-        "casee": "scripts/index.js"
+        "sigo": "scripts/index.js"
     },
     "dependencies": {
         "funal": "^0.0.1",
-        "react": "^16.0.0",
-        "react-dom": "^16.0.0",
+        "react": "^16.1.0",
+        "react-dom": "^16.1.0",
         "react-redux": "^5.0.6",
         "react-router-dom": "^4.2.2",
         "redux": "^3.7.2",
@@ -27,7 +27,7 @@
         "babel-polyfill": "^6.26.0",
         "babel-preset-env": "^1.6.0",
         "babel-preset-react": "^6.24.1",
-        "babel-preset-react-app": "^3.0.3",
+        "babel-preset-react-app": "^3.1.0",
         "babel-preset-react-optimize": "^1.0.1",
         "babel-preset-stage-3": "^6.24.1",
         "babel-register": "^6.26.0",
@@ -40,8 +40,7 @@
         "node-sass": "^4.5.3",
         "postcss-loader": "^2.0.7",
         "raw-loader": "^0.5.1",
-        "react-addons-perf": "^15.4.2",
-        "react-hot-loader": "^3.0.0",
+        "react-hot-loader": "^3.1.2",
         "redux-immutable-state-invariant": "^2.1.0",
         "redux-logger": "^3.0.6",
         "sass-loader": "^6.0.6",
