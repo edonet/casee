@@ -23,9 +23,15 @@
  *************************************
  */
 html, body {
+
+    // 字体大小、颜色
     color: $fontColor;
     font-size: $fontSize;
     line-height: $fontLineHeight;
+
+    // 字体配置
+    font-family: -apple-system;
+    font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
 
     // 平滑文字
     -webkit-font-smoothing: antialiased;
@@ -35,6 +41,7 @@ html, body {
     // 字体调节
     -webkit-text-size-adjust: none;
     font-size-adjust: none;
+    font-synthesis: style;
 
     // 禁用选择文本
     -webkit-user-select: none;
@@ -49,10 +56,6 @@ html, body {
     left: 0;
     margin: 0;
     padding: 0;
-
-    // 字体配置
-    font-family: -apple-system;
-    font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
 
     // 其它设置
     word-wrap: break-word;

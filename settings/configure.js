@@ -43,6 +43,7 @@ module.exports = ({ cwd, dir, index, src, dist, style, alias, devServer, ...sett
                 ...alias,
                 'sigo': dir('../lib'),
                 'style': dir('../lib/style'),
+                'selector': dir('../lib/selector'),
                 '$$style': cwd(style)
             },
             stats: {

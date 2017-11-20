@@ -23,7 +23,7 @@ import App from './app';
  *****************************************
  */
 render((
-    <AppProvider><App /></AppProvider>
+    <AppProvider title="Sigo"><App /></AppProvider>
 ), 'app');
 
 
@@ -40,7 +40,7 @@ if (module.hot) {
 
         // 渲染组件
         render((
-            <AppProvider>{ app.default }</AppProvider>
+            <AppProvider title="Sigo">{ app.default }</AppProvider>
         ), 'app');
     });
 }

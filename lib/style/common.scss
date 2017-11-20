@@ -26,17 +26,19 @@
 /* fixed 布局 */
 .fixed {
     @extend .box;
-    position: fixed;
     display: flex;
+    position: fixed;
 }
 
 /* absolute 布局 */
 .abs {
+    display: block;
     position: absolute;
 }
 
 /* relative 布局 */
 .rel {
+    display: block;
     position: relative;
 }
 

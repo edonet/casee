@@ -1,0 +1,47 @@
+/**
+ *****************************************
+ * Created by lifx
+ * Created on 2017-11-19 11:45:50
+ *****************************************
+ */
+@charset "utf-8";
+
+
+/**
+ *****************************************
+ * 加载依赖
+ *****************************************
+ */
+@import "~style/settings";
+
+
+/**
+ *****************************************
+ * 定义样式
+ *****************************************
+ */
+.app-header {
+    height: $appHeaderHeight;
+    bottom: auto;
+    color: $appHeaderColor;
+    background-color: $appHeaderBgColor;
+    transition: transform .3s ease-in-out;
+    z-index: 9999;
+
+    .ios > & {
+        padding-top: $iosStatusHeight;
+        height: $appHeaderHeight + $iosStatusHeight;
+    }
+
+    @at-root .app-title {
+        width: 50%;
+        height: 1.5em;
+        font-size: rem(16px);
+        line-height: 1.5em;
+    }
+
+    @at-root .app-nav-left, .app-nav-right {
+        width: 25%;
+        z-index: 9;
+    }
+}
