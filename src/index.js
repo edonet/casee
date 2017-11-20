@@ -13,7 +13,7 @@
  *****************************************
  */
 import React from 'react';
-import render, { AppProvider } from 'sigo';
+import render, { AppContainer } from 'sigo';
 import App from './app';
 
 
@@ -23,7 +23,7 @@ import App from './app';
  *****************************************
  */
 render((
-    <AppProvider title="Sigo"><App /></AppProvider>
+    <AppContainer title="Sigo"><App /></AppContainer>
 ), 'app');
 
 
@@ -40,7 +40,7 @@ if (module.hot) {
 
         // 渲染组件
         render((
-            <AppProvider title="Sigo">{ app.default }</AppProvider>
+            <AppContainer title="Sigo">{ app.default }</AppContainer>
         ), 'app');
     });
 }
