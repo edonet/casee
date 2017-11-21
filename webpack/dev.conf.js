@@ -16,6 +16,7 @@ const
     fs = require('fs'),
     path = require('path'),
     cp = require('child_process'),
+    sh = require('shelljs'),
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
@@ -64,24 +65,24 @@ module.exports = app => ({
             data: app.settings,
             callback: chunk => {
 
-                // 创建文件夹
-                cp.exec(`mkdir ${app.dist}`);
+                try {
 
-                // 清空文件夹
-                cp.exec(`rm -rf ${app.dist}/*`, (err, stderr) => {
-
-                    // 打印错误
-                    if (err || stderr) {
-                        return console.error(err || stderr);
-                    }
-
+                    // 移除文件夹
+                    sh.rm('-rf', app.dist);
+    
+                    // 创建文件夹
+                    sh.mkdir(app.dist);
+                    // cp.exec(`mkdir ${app.dist}`);
+    
                     // 获取目标路径
                     let dir = path.resolve(app.dist, path.basename(app.index)),
                         data = chunk.html.source();
-
+    
                     // 生成文件
                     fs.writeFile(dir, data, err => err && console.error(err));
-                });
+                } catch (err) {
+                    console.log(err);
+                }
             }
         })
     ]
