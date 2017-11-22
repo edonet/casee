@@ -1,0 +1,124 @@
+/**
+ *****************************************
+ * Created by lifx
+ * Created on 2017-11-22 18:33:57
+ *****************************************
+ */
+@charset "utf-8";
+
+
+/**
+ *****************************************
+ * 加载依赖
+ *****************************************
+ */
+@import "~style/settings";
+
+
+/**
+ *****************************************
+ * 过滤动画
+ *****************************************
+ */
+.app-transition {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+/**
+ *****************************************
+ * 渐入动画
+ *****************************************
+ */
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: $animGoEnter;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+
+
+/**
+ *****************************************
+ * 渐出动画
+ *****************************************
+ */
+.fade-out {
+    animation-name: fadeOut;
+    animation-duration: $animGoLeave;
+    animation-timing-function: ease-in;
+    opacity: 0;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; } to { opacity: 0; }
+}
+
+
+/**
+ *****************************************
+ * 右渐入动画
+ *****************************************
+ */
+.right-fade-in {
+    animation-name: rightIn, fadeIn;
+    animation-duration: $animGoEnter + 0.05s;
+}
+
+@keyframes rightIn {
+    from { transform: translate(100%, 0) translateZ(0); }
+    to { transform: translate(0, 0) translateZ(0); }
+}
+
+
+/**
+ *****************************************
+ * 右渐出动画
+ *****************************************
+ */
+.right-fade-out {
+    animation-name: leftOut, fadeOut;
+    animation-duration: $animGoLeave + 0.05s;
+}
+
+@keyframes leftOut {
+    from { transform: translate(0, 0) translateZ(0); }
+    to { transform: translate(-100%, 0) translateZ(0); }
+}
+
+
+/**
+ *****************************************
+ * 左渐入动画
+ *****************************************
+ */
+.left-fade-in {
+    animation-name: leftIn, fadeIn;
+    animation-duration: $animGoEnter + 0.05s;
+}
+
+@keyframes leftIn {
+    from { transform: translate(-100%, 0) translateZ(0); }
+    to { transform: translate(0, 0) translateZ(0); }
+}
+
+
+/**
+ *****************************************
+ * 左渐出动画
+ *****************************************
+ */
+.left-fade-out {
+    animation-name: rightOut, fadeOut;
+    animation-duration: $animBackLeave + 0.05s;
+}
+
+@keyframes rightOut {
+    from { transform: translate(0, 0) translateZ(0); }
+    to { transform: translate(100%, 0) translateZ(0); }
+}

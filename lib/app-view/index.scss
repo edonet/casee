@@ -79,7 +79,7 @@
 
     to {
         transform: translate3d(0, 0, 0);
-        box-shadow: 0 0 12px 1px rgba(black, .25);
+        box-shadow: 0 0 20px 1px rgba(black, .15);
     }
 }
 
@@ -96,7 +96,7 @@
 @keyframes viewRightLeave {
     from {
         transform: translate3d(0, 0, 0);
-        box-shadow: 0 0 12px 1px rgba(black, .25);
+        box-shadow: 0 0 20px 1px rgba(black, .15);
     }
 
     to {

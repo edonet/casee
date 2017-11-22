@@ -1,7 +1,7 @@
 /**
  *****************************************
  * Created by lifx
- * Created on 2017-11-13 15:05:41
+ * Created on 2017-11-22 18:21:31
  *****************************************
  */
 'use strict';
@@ -13,23 +13,15 @@
  *****************************************
  */
 import React from 'react';
-import * as style from 'style';
-import { AppLink, AppView } from 'sigo';
-import About from './about';
-
-console.log(style);
 
 
 /**
  *****************************************
- * 定义组件
+ * 关于组件
  *****************************************
  */
-export default function App() {
+export default function About() {
     return (
-        <div>
-            <AppLink path="./user">Hello Orchid! @:@!</AppLink>
-            <AppView title="我" path="./user" component={ About } />
-        </div>
+        <div>关于我们</div>
     );
 }
