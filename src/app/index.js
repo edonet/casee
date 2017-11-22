@@ -14,7 +14,7 @@
  */
 import React from 'react';
 import * as style from 'style';
-import { AppTap } from 'sigo';
+import { AppLink } from 'sigo';
 
 console.log(style);
 
@@ -26,6 +26,6 @@ console.log(style);
  */
 export default function App() {
     return (
-        <AppTap className="app">Hello Orchid! @:@!</AppTap>
+        <AppLink className="app">Hello Orchid! @:@!</AppLink>
     );
 }
