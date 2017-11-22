@@ -26,6 +26,6 @@ console.log(style);
  */
 export default function App() {
     return (
-        <AppLink className="app">Hello Orchid! @:@!</AppLink>
+        <AppLink className="app" path="www.baidu.com">Hello Orchid! @:@!</AppLink>
     );
 }
