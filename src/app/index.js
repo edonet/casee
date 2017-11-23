@@ -31,10 +31,10 @@ export default function App({ title = '' }) {
             <AppLink path="./user">Hello Orchid! @:@!</AppLink>
             <AppLink path="./about">Hello Orchid! @:@!</AppLink>
             <AppLink path="./index">Hello Orchid! @:@!</AppLink>
-            <AppView title={ title + '/我' } path="./user" component={ About } />
-            <AppView title={ title + '/关于' } path="./user" component={ About } />
-            <AppView title={ title + '/Index' } path="./index" component={ App } />
-            <AppView title={ title + '/404' } component={ About } />
+            <AppView title={ title ? title + '/我' : '我' } path="./user" component={ About } />
+            <AppView title={ title ? title + '/关于' : '关于' } path="./user" component={ About } />
+            <AppView title={ title ? title + '/Index' : 'Index' } path="./index" component={ App } />
+            <AppView title={ title ? title + '/404' : '404' } component={ About } />
         </div>
     );
 }
