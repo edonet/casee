@@ -21,6 +21,8 @@
  *****************************************
  */
 .app-content {
+    z-index: 1;
+
     .ios > & {
         top: $iosStatusHeight;
     }
