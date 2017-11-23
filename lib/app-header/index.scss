@@ -34,15 +34,59 @@
     }
 
     @at-root .app-title {
-        width: 50%;
+        width: 40%;
         height: 1.5em;
         font-size: rem(16px);
         line-height: 1.5em;
+        z-index: 1;
+    }
+
+    @at-root .app-nav-back {
+        transition: opacity .3s ease-in-out;
+        z-index: 2;
+
+        &.act {
+            opacity: .65;
+        }
+
+        &.disabled {
+            opacity: 0;
+
+            & + .flex {
+                margin-left: -50px;
+            }
+        }
+
+        & + .flex {
+            height: 100%;
+            margin-left: 0;
+            transition: margin-left .3s ease-in-out;
+
+            & > .app-transition {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+        }
     }
 
     @at-root .app-nav-left, .app-nav-right {
-        width: 25%;
+        width: 30%;
+        height: 100%;
         z-index: 9;
+    }
+
+    @at-root .app-nav-left {
+        & > .app-transition {
+            left: 60px;
+            transition: left .3s ease-in-out;
+        }
+    }
+
+    @at-root .app-nav-right {
+        & > .app-transition {
+            justify-content: right;
+        }
     }
 }
 
