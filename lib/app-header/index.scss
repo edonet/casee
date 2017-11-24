@@ -42,50 +42,38 @@
     }
 
     @at-root .app-nav-back {
+        opacity: 0;
         transition: opacity .3s ease-in-out;
         z-index: 2;
 
+        .has-nav-back > & {
+            opacity: 1;
+        }
+
         &.act {
-            opacity: .65;
-        }
-
-        &.disabled {
-            opacity: 0;
-
-            & + .flex {
-                margin-left: -50px;
-            }
-        }
-
-        & + .flex {
-            height: 100%;
-            margin-left: 0;
-            transition: margin-left .3s ease-in-out;
-
-            & > .app-transition {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
+            opacity: .45;
         }
     }
 
     @at-root .app-nav-left, .app-nav-right {
         width: 30%;
         height: 100%;
-        z-index: 9;
+        z-index: 3;
     }
 
     @at-root .app-nav-left {
         & > .app-transition {
-            left: 60px;
             transition: left .3s ease-in-out;
+        }
+
+        &.has-nav-back > .app-transition {
+            left: 60px;
         }
     }
 
     @at-root .app-nav-right {
         & > .app-transition {
-            justify-content: right;
+            justify-content: flex-end;
         }
     }
 }
