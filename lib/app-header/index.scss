@@ -44,7 +44,6 @@
     @at-root .app-nav-back {
         opacity: 0;
         transition: opacity .3s ease-in-out;
-        z-index: 2;
 
         .has-nav-back > & {
             opacity: 1;

@@ -27,7 +27,10 @@ const
  */
 module.exports = app => ({
     entry: {
-        app: app.entry
+        app: [
+            'babel-polyfill',
+            app.entry
+        ]
     },
     plugins: [
         new webpack.DefinePlugin({

@@ -31,6 +31,7 @@ const
 module.exports = app => ({
     entry: {
         app: [
+            'babel-polyfill',
             'react-hot-loader/patch',
             'webpack-dev-server/client?' + app.publicPath,
             'webpack/hot/only-dev-server',
@@ -69,15 +70,15 @@ module.exports = app => ({
 
                     // 移除文件夹
                     sh.rm('-rf', app.dist);
-    
+
                     // 创建文件夹
                     sh.mkdir(app.dist);
                     // cp.exec(`mkdir ${app.dist}`);
-    
+
                     // 获取目标路径
                     let dir = path.resolve(app.dist, path.basename(app.index)),
                         data = chunk.html.source();
-    
+
                     // 生成文件
                     fs.writeFile(dir, data, err => err && console.error(err));
                 } catch (err) {
