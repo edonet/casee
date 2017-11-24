@@ -33,7 +33,7 @@
  */
 .fade-in {
     animation-name: fadeIn;
-    animation-duration: $animGoEnter;
+    animation-duration: $animGoEnter * 1ms;
     animation-timing-function: ease-in-out;
     opacity: 1;
 }
@@ -50,7 +50,7 @@
  */
 .fade-out {
     animation-name: fadeOut;
-    animation-duration: $animGoLeave;
+    animation-duration: $animGoLeave * 1ms;
     animation-timing-function: ease-in;
     opacity: 0;
 }
@@ -67,7 +67,7 @@
  */
 .right-fade-in {
     animation-name: rightIn, fadeIn;
-    animation-duration: $animGoEnter + 0.05s;
+    animation-duration: $animGoEnter * 1ms + 0.05s;
 }
 
 @keyframes rightIn {
@@ -83,7 +83,7 @@
  */
 .right-fade-out {
     animation-name: leftOut, fadeOut;
-    animation-duration: $animGoLeave + 0.05s;
+    animation-duration: $animGoLeave * 1ms + 0.05s;
 }
 
 @keyframes leftOut {
@@ -99,7 +99,7 @@
  */
 .left-fade-in {
     animation-name: leftIn, fadeIn;
-    animation-duration: $animGoEnter + 0.05s;
+    animation-duration: $animGoEnter * 1ms + 0.05s;
 }
 
 @keyframes leftIn {
@@ -115,7 +115,7 @@
  */
 .left-fade-out {
     animation-name: rightOut, fadeOut;
-    animation-duration: $animBackLeave + 0.05s;
+    animation-duration: $animBackLeave * 1ms + 0.05s;
 }
 
 @keyframes rightOut {

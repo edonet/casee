@@ -29,7 +29,7 @@
 
     &.right-enter {
         animation-name: viewRightEnter;
-        animation-duration: $animGoEnter;
+        animation-duration: $animGoEnter * 1ms;
         animation-timing-function: ease-out;
         z-index: 10;
     }
@@ -37,19 +37,19 @@
     &.left-leave {
         transform: translate3d(-100%, 0, 0);
         animation-name: viewLeftLeave;
-        animation-duration: $animGoLeave;
+        animation-duration: $animGoLeave * 1ms;
     }
 
 
     &.left-enter {
         animation-name: viewLeftEnter;
-        animation-duration: $animBackEnter;
+        animation-duration: $animBackEnter * 1ms;
     }
 
     &.right-leave {
         transform: translate3d(100%, 0, 0);
         animation-name: viewRightLeave;
-        animation-duration: $animBackLeave;
+        animation-duration: $animBackLeave * 1ms;
         animation-timing-function: ease-in-out;
         z-index: 10;
     }

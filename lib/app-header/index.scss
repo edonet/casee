@@ -34,7 +34,7 @@
     }
 
     @at-root .app-title {
-        width: 40%;
+        width: 50%;
         height: 1.5em;
         font-size: rem(16px);
         line-height: 1.5em;
@@ -55,7 +55,7 @@
     }
 
     @at-root .app-nav-left, .app-nav-right {
-        width: 30%;
+        width: 25%;
         height: 100%;
         z-index: 3;
     }
@@ -66,7 +66,7 @@
         }
 
         &.has-nav-back > .app-transition {
-            left: 60px;
+            left: 50px;
         }
     }
 
