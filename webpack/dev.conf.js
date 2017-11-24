@@ -15,8 +15,7 @@
 const
     fs = require('fs'),
     path = require('path'),
-    cp = require('child_process'),
-    sh = require('shelljs'),
+    { promisify } = require('util'),
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
@@ -66,24 +65,19 @@ module.exports = app => ({
             data: app.settings,
             callback: chunk => {
 
-                try {
-
-                    // 移除文件夹
-                    sh.rm('-rf', app.dist);
-
-                    // 创建文件夹
-                    sh.mkdir(app.dist);
-                    // cp.exec(`mkdir ${app.dist}`);
+                // 查看目录信息
+                fs.stat(app.dist, async err => {
 
                     // 获取目标路径
                     let dir = path.resolve(app.dist, path.basename(app.index)),
                         data = chunk.html.source();
 
+                    // 创建目录
+                    err && await promisify(fs.mkdir)(app.dist);
+
                     // 生成文件
-                    fs.writeFile(dir, data, err => err && console.error(err));
-                } catch (err) {
-                    console.log(err);
-                }
+                    await promisify(fs.writeFile)(dir, data);
+                });
             }
         })
     ]

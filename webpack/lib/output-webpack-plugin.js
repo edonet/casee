@@ -69,7 +69,12 @@ class OutputWebpackPlugin {
                 // 准备回调
                 if (!ready) {
                     ready = true;
-                    onEmitHandler && onEmitHandler(chunk);
+
+                    let res = onEmitHandler && onEmitHandler(chunk);
+
+                    if (res && 'then' in res) {
+                        res.catch(err => console.log(err));
+                    }
                 }
 
                 // 执行回调
