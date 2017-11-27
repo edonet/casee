@@ -46,6 +46,9 @@ class AppRouter extends Component {
         // 更新路由
         dispatch(updateAppRouter({ history, location }));
 
+        // 更新匹配状态
+        // updateMatchedRouter()
+
     }
 
     /* 渲染空元素 */
