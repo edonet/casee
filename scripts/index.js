@@ -15,9 +15,12 @@
  *****************************************
  */
 switch (process.argv[2]) {
-    case 'dist':
-    case 'prod':
+    case '--dist':
+    case '--prod':
         require('./dist');
+        break;
+    case '--test':
+        require('./test');
         break;
     default:
         require('./dev');

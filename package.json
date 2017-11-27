@@ -7,7 +7,8 @@
     "author": "edoner <edonet@163.com>",
     "license": "MIT",
     "scripts": {
-        "dev": "node scripts/index.js"
+        "dev": "node scripts/index.js",
+        "test": "node scripts/index.js --test"
     },
     "bin": {
         "sigo": "scripts/index.js"
@@ -55,23 +56,5 @@
         "var-importer": "^0.1.301",
         "webpack": "^3.7.1",
         "webpack-dev-server": "^2.9.1"
-    },
-    "jest": {
-        "collectCoverageFrom": [
-            "src/**/*.{js,jsx}"
-        ],
-        "testMatch": [
-            "<rootDir>/src/**/*.(test|spec).js?(x)"
-        ],
-        "testEnvironment": "node",
-        "testURL": "http://localhost",
-        "transform": {
-            "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-            "^.+\\.css$": "<rootDir>/settings/jest/cssTransform.js",
-            "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/settings/jest/fileTransform.js"
-        },
-        "transformIgnorePatterns": [
-            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-        ]
     }
 }

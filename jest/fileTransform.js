@@ -1,7 +1,7 @@
 /**
  *****************************************
  * Created by lifx
- * Created on 2017-11-24 23:32:00
+ * Created on 2017-11-27 15:21:01
  *****************************************
  */
 'use strict';
@@ -12,18 +12,16 @@
  * 加载依赖
  *****************************************
  */
-import { createReducer } from 'selector';
-import { UPDATE_APP_ROUTER } from './actionTypes';
+const path = require('path');
 
 
 /**
  *****************************************
- * 更新路由信息
+ * 自定义文件转换器
  *****************************************
  */
-export const $router = createReducer({
-    type: UPDATE_APP_ROUTER,
-    state: {
-        action: '', method: '', pathname: '', histories: []
+module.exports = {
+    process(src, filename) {
+        return `module.exports = ${JSON.stringify(path.basename(filename))};`;
     }
-});
+};

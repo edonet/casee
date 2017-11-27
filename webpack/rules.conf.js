@@ -40,7 +40,7 @@ module.exports = app => {
     return [
         {
             test: /\.jsx?$/,
-            exclude: /node_modules[\\\/]+(?!webpack-dev-server)/,
+            exclude: /node_modules[\\/]+(?!webpack-dev-server)/,
             loader: 'babel-loader',
             options: {
                 compact: false,

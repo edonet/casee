@@ -28,6 +28,7 @@ module.exports = ({ cwd, dir, index, src, dist, style, alias, devServer, ...sett
             env,
             isProduction,
             settings,
+            rootDir: dir('../'),
             src: cwd(src),
             dist: cwd(dist),
             entry: cwd(src, 'index.js'),
@@ -44,6 +45,7 @@ module.exports = ({ cwd, dir, index, src, dist, style, alias, devServer, ...sett
                 'sigo': dir('../lib'),
                 'style': dir('../lib/style'),
                 'selector': dir('../lib/selector'),
+                'validate': dir('../lib/validete'),
                 '$$style': cwd(style)
             },
             stats: {
