@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 import selector from 'selector';
 import { updateAppState } from '../actions';
 import { pushState, replaceState, popState, resolvePath } from '../history';
-import matchState from './match.js';
+import matchState from '../match';
 
 
 /**
@@ -58,8 +58,8 @@ class AppRoute extends Component {
             goBack(...args) {
                 return updateAppState(popState(router)(...args));
             },
-            match(state) {
-                return matchState(router)(state);
+            match(...args) {
+                return matchState(router)(...args);
             }
         };
     }

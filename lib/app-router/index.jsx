@@ -16,6 +16,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { dispatch } from 'selector';
 import { updateAppRouter } from './actions';
+import { resetState } from './match';
 
 
 
@@ -47,7 +48,7 @@ class AppRouter extends Component {
         dispatch(updateAppRouter({ history, location }));
 
         // 更新匹配状态
-        // updateMatchedRouter()
+        resetState();
 
     }
 

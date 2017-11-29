@@ -27,9 +27,9 @@
                         {
                             "path": "",
                             "matched": {
-                                "/index/about/info": { "path": "/index/about/:__matched", "url": "/index/about/info", "isExact": true, "params": { "__matched": "info" } },
-                                "/index/about/detail": { "path": "/index/about/:__matched", "url": "/index/about/detail", "isExact": true, "params": { "__matched": "detail" } },
-                                "/index/about/other": { "path": "/index/about/:__matched", "url": "/index/about/other", "isExact": true, "params": { "__matched": "other" } }
+                                "/index/about/info": null,
+                                "/index/about/detail": { "path": "/index/about/:__other__", "url": "/index/about/detail", "isExact": true, "params": { "__other__": "detail" } },
+                                "/index/about/other": { "path": "/index/about/:__other__", "url": "/index/about/other", "isExact": true, "params": { "__other__": "other" } }
                             }
                         },
                         {
