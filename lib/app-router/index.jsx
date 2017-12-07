@@ -16,6 +16,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { dispatch } from 'selector';
 import { updateAppRouter } from './actions';
+import { invokeRouterCallback } from './match';
 
 
 
@@ -45,10 +46,6 @@ class AppRouter extends Component {
 
         // 更新路由
         dispatch(updateAppRouter({ history, location }));
-
-        // 更新匹配状态
-        // updateMatchedRouter()
-
     }
 
     /* 渲染空元素 */
@@ -58,6 +55,16 @@ class AppRouter extends Component {
                 {this.props.children}
             </div>
         );
+    }
+
+    /* 挂载完成 */
+    componentDidMount() {
+        this.componentDidUpdate();
+    }
+
+    /* 更新完成 */
+    componentDidUpdate() {
+        invokeRouterCallback();
     }
 
     /* 卸载组件  */
