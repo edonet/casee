@@ -7,7 +7,7 @@
     "author": "edoner <edonet@163.com>",
     "license": "MIT",
     "scripts": {
-        "dev": "node scripts/index.js",
+        "start": "node scripts/index.js",
         "test": "node scripts/index.js --test"
     },
     "bin": {
