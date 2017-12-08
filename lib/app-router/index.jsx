@@ -58,7 +58,7 @@ class AppRouter extends Component {
 
     /* 挂载完成 */
     componentDidMount() {
-        this.componentDidUpdate();
+        invokeRouterCallback();
     }
 
     /* 更新完成 */
