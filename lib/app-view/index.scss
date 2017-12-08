@@ -38,12 +38,14 @@
         transform: translate3d(-100%, 0, 0);
         animation-name: viewLeftLeave;
         animation-duration: $animGoLeave * 1ms;
+        z-index: 9;
     }
 
 
     &.left-enter {
         animation-name: viewLeftEnter;
         animation-duration: $animBackEnter * 1ms;
+        z-index: 9;
     }
 
     &.right-leave {

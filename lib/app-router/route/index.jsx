@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 import selector from 'selector';
 import { updateAppState } from '../actions';
 import { pushState, replaceState, popState, resolvePath } from '../history';
-import matchState from '../match';
+import matchState, { routeWillUpdate, routeDidUpdate } from '../match';
 
 
 /**
@@ -40,7 +40,9 @@ class AppRoute extends Component {
         // 渲染元素
         return this.props.render({
             ...router,
-            ...this.createHistory(router)
+            ...this.createHistory(router),
+            routeWillUpdate,
+            routeDidUpdate
         });
     }
 

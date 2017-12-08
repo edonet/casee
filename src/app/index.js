@@ -26,6 +26,7 @@ console.log(style);
  *****************************************
  */
 export default function App({ title = '' }) {
+    console.log('--> render app');
     return (
         <div>
             <AppLink path="./user">Hello Orchid! @:@!</AppLink>
