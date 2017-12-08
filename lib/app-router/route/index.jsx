@@ -33,9 +33,7 @@ class AppRoute extends Component {
                 ...this.props.$router,
                 context: this.context.$$pathname,
                 length: this.props.$router.histories.length,
-                resolve: (...args) => {
-                    return resolvePath(this.context.$$pathname)(...args);
-                }
+                resolve: resolvePath(this.context.$$pathname)
             };
 
 
