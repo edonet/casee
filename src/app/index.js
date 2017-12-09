@@ -30,10 +30,10 @@ export default function App({ title = '' }) {
     console.log('--> render app');
     return (
         <div>
-            <AppLink path="./user">Hello Orchid! @:@!</AppLink>
-            <AppLink path="./about">Hello Orchid! @:@!</AppLink>
-            <AppLink path="./icons">icons! @:@!</AppLink>
-            <AppLink path="./index">Hello Orchid! @:@!</AppLink>
+            <AppLink path="./user"><p>Hello Orchid! @:@!</p></AppLink>
+            <AppLink path="./about"><p>Hello Orchid! @:@!</p></AppLink>
+            <AppLink path="./icons"><p>Hello Icons! @:@!</p></AppLink>
+            <AppLink path="./index"><p>Hello Orchid! @:@!</p></AppLink>
             <AppView title="图标" path="./icons" component={ Icons } />
             <AppView title={ title ? title + '/我' : '我' } path="./user" component={ About } />
             <AppView title={ title ? title + '/关于' : '关于' } path="./user" component={ About } />
