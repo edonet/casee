@@ -35,7 +35,7 @@
     }
 
     &.left-leave {
-        transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-70%, 0, 0);
         animation-name: viewLeftLeave;
         animation-duration: $animGoLeave * 1ms;
         z-index: 9;
@@ -65,7 +65,7 @@
  */
 @keyframes viewLeftEnter {
     from {
-        transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-70%, 0, 0);
     }
 
     to {
@@ -91,7 +91,7 @@
     }
 
     to {
-        transform: translate3d(-90%, 0, 0);
+        transform: translate3d(-70%, 0, 0);
     }
 }
 

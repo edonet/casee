@@ -21,8 +21,8 @@ import React from 'react';
  *****************************************
  */
 export default function About() {
-    console.log('--render view');
+    console.log('--> render view');
     return (
-        <div>关于</div>
+        <div>关于@</div>
     );
 }

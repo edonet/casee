@@ -16,7 +16,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { dispatch } from 'selector';
 import { updateAppRouter } from './actions';
-import { updateAppMatcher } from './match';
+import { updateAppMatcher } from '../app-view/match';
 
 
 /**
