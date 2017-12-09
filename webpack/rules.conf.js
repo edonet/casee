@@ -82,6 +82,7 @@ module.exports = app => {
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
+            exclude: /\/svgx\//,
             options: {
                 limit: 8192,
                 name: 'img/[name].[hash:8].[ext]'
@@ -96,7 +97,8 @@ module.exports = app => {
             }
         },
         {
-            test: /\.svgx$/,
+            test: /\.svgx?$/,
+            include: /\/svgx\//,
             loader: 'svgx-loader'
         },
         {

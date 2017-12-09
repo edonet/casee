@@ -52,6 +52,12 @@
         &.act {
             opacity: .45;
         }
+
+        & > .app-icon {
+            margin-right: -4px;
+            font-size: 22px;
+            vertical-align: 2px;
+        }
     }
 
     @at-root .app-nav-left, .app-nav-right {

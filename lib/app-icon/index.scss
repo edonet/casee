@@ -16,57 +16,7 @@
         display: block;
         width: 100%;
         height: 100%;
+        fill: currentColor;
     }
 }
 
-
-/**
- ************************************
- * 定义箭头样式
- ************************************
- */
-
-/* 向左箭头 */
-.ic-arrow-left {
-    border-left: 1px solid currentColor;
-    border-bottom: 1px solid currentColor;
-    transform: rotate(45deg);
-}
-
-/* 向右箭头 */
-.ic-arrow-right {
-    border-top: 1px solid currentColor;
-    border-right: 1px solid currentColor;
-    transform: rotate(45deg);
-}
-
-/* 向上箭头 */
-.ic-arrow-up {
-    border-top: 1px solid currentColor;
-    border-left: 1px solid currentColor;
-    transform: rotate(45deg);
-}
-
-/* 向下箭头 */
-.ic-arrow-down {
-    border-right: 1px solid currentColor;
-    border-bottom: 1px solid currentColor;
-    transform: rotate(45deg);
-}
-
-
-/**
- *****************************************
- * 标记图标
- *****************************************
- */
-
-/* 对号标记 */
-.ic-checkmark {
-    width: 1em;
-    height: 0.5em;
-    border-width: 0 0 1px 1px;
-    border-style: solid;
-    border-color: currentColor;
-    transform: rotate(-45deg);
-}
