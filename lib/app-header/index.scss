@@ -44,7 +44,6 @@
     @at-root .app-nav-back {
         opacity: 0;
         transition: opacity .3s ease-in-out;
-        z-index: 2;
 
         .has-nav-back > & {
             opacity: 1;
@@ -55,15 +54,16 @@
         }
 
         & > .app-icon {
-            margin-right: -3px;
-            font-size: 22px;
-            vertical-align: 2px;
+            margin-right: -5px;
+            font-size: 26px;
+            vertical-align: 5px;
         }
     }
 
     @at-root .app-nav-left, .app-nav-right {
         width: 25%;
         height: 100%;
+        margin-top: 5px;
         z-index: 3;
     }
 
@@ -73,7 +73,7 @@
         }
 
         &.has-nav-back > .app-transition {
-            transform: translate(40px, 0) translateZ(0);
+            transform: translate(45px, 0) translateZ(0);
         }
     }
 
