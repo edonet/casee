@@ -44,6 +44,7 @@
     @at-root .app-nav-back {
         opacity: 0;
         transition: opacity .3s ease-in-out;
+        z-index: 2;
 
         .has-nav-back > & {
             opacity: 1;
@@ -54,7 +55,7 @@
         }
 
         & > .app-icon {
-            margin-right: -4px;
+            margin-right: -3px;
             font-size: 22px;
             vertical-align: 2px;
         }
@@ -68,11 +69,11 @@
 
     @at-root .app-nav-left {
         & > .app-transition {
-            transition: left .3s ease-in-out;
+            transition: transform .3s ease-in-out;
         }
 
         &.has-nav-back > .app-transition {
-            left: 50px;
+            transform: translate(40px, 0) translateZ(0);
         }
     }
 
