@@ -45,8 +45,9 @@ module.exports = ({ cwd, dir, index, src, dist, style, alias, devServer, ...sett
                 'sigo': dir('../lib'),
                 'style': dir('../lib/style'),
                 'selector': dir('../lib/selector'),
-                'validate': dir('../lib/validete'),
-                '$$style': cwd(style)
+                '$$validate': dir('../lib/validete'),
+                '$$style': cwd(style),
+                '$$utils': dir('../lib/utils')
             },
             stats: {
                 colors: true,
