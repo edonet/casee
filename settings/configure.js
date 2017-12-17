@@ -65,8 +65,9 @@ module.exports = ({ cwd, dir, index, src, dist, style, alias, devServer, ...sett
         // 定义服务器参数
         app.devServer = {
             hot: true,
+            hotOnly: true,
             host: require('./ip')(),
-            port: 10098,
+            port: 10099,
             https: false,
             disableHostCheck: true,
             contentBase: app.dist,
