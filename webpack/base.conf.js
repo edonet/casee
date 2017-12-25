@@ -21,24 +21,24 @@ const
  * 输出配置项
  ****************************************
  */
-module.exports = app => ({
-    context: app.src,
+module.exports = settings => ({
+    context: settings.src,
     output: {
-        path: app.dist,
-        publicPath: app.publicPath,
-        filename: app.filename,
-        chunkFilename: app.filename
+        path: settings.dist,
+        publicPath: settings.publicPath,
+        filename: settings.filename,
+        chunkFilename: settings.filename
     },
     resolve: {
-        alias: app.alias,
+        alias: settings.alias || {},
         extensions: ['.js', '.jsx'],
-        modules: app.modules
+        modules: settings.modules || ['node_modules']
     },
     resolveLoader: {
-        modules: app.modules
+        modules: settings.modules || ['node_modules']
     },
     module: {
-        rules: rules(app),
+        rules: rules(settings),
         noParse: /\.min(\.[\w]+)?$/
     }
 });

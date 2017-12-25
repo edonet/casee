@@ -25,22 +25,21 @@ const
 module.exports = {
     rootDir: app.rootDir,
     roots: [
-        '<rootDir>/lib/',
-        app.src
+        '<rootDir>/lib/', '<rootDir>/src/'
     ],
     testMatch: [
-        '**/?(*.)(spec|test).js?(x)'
+        '**/?(*.)(spec|test).js'
     ],
-    testEnvironment: 'node',
+    testEnvironment: 'jsdom',
     testURL: 'http://localhost',
     transform: {
-        '^.+\\.(js|jsx)$': '<rootDir>/jest/jsTransform.js',
-        '^.+\\.css$': '<rootDir>/jest/cssTransform.js',
-        '^(?!.*\\.(js|jsx|css|json)$)': '<rootDir>/jest/fileTransform.js'
+        '^.+\\.(js|jsx)$': resolve('./jsTransform.js'),
+        '^.+\\.css$': resolve('./cssTransform.js'),
+        '^(?!.*\\.(js|jsx|css|json)$)': resolve('./fileTransform.js')
     },
     moduleNameMapper: app.alias,
     transformIgnorePatterns: [
-        'node_modules'
+        'node_modules', 'git'
     ],
     collectCoverageFrom: [
         '**/*.{js,jsx}'

@@ -1,54 +1,80 @@
 /**
  *****************************************
  * Created by lifx
- * Created on 2017-11-04 11:06:48
+ * Created on 2017-12-16 19:04:21
  *****************************************
  */
 'use strict';
 
 
 /**
- *************************************
+ *****************************************
  * 加载依赖
- *************************************
+ *****************************************
  */
 const
     webpack = require('webpack'),
-    configure = require('./base.conf');
+    WebpackDevServer = require('webpack-dev-server');
 
 
 /**
  *****************************************
- * 抛出打包接口
+ * 打包应用
  *****************************************
  */
-module.exports = (app, callback) => {
-
-    // 获取基本配置
-    let base = configure(app),
-        options;
+module.exports = (settings, devServer) => (
+    devServer ? createServer(settings, devServer) : createPack(settings)
+);
 
 
-    // 获取打包配置
-    switch (process.env.NODE_ENV) {
+/**
+ *****************************************
+ * 启动打包服务器
+ *****************************************
+ */
+function createServer(settings, devServer) {
+    return new Promise((resolve, reject) => {
+        let { port, host } = devServer,
+            app = require('./dev.conf')(settings),
+            server = new WebpackDevServer(webpack(app), devServer);
 
-        // 开发环境
-        case 'development':
-            options = require('./dev.conf')(app);
-            break;
 
-        // 预发布环境
-        case 'beta':
-            options = require('./beta.conf')(app);
-            break;
+        // 启动服务器监听
+        server.listen(port, host, err => {
 
-        // 正式环境
-        default:
-            options = require('./dist.conf')(app);
-            break;
-    }
+            // 输出错误信息
+            if (err) {
+                return reject(err);
+            }
 
-    // 启动打包
-    return webpack(Object.assign({}, base, options), callback);
+            resolve(server);
+        });
+    });
+}
 
-};
+
+/**
+ *****************************************
+ * 启动打包
+ *****************************************
+ */
+function createPack(settings) {
+    return new Promise((resolve, reject) => {
+        let app = require('./dist.conf')(settings);
+
+        // 启动打包
+        webpack(app, (err, compiler) => {
+
+            // 返回错误信息
+            if (err) {
+                return reject(err);
+            }
+
+            // 打印编译信息
+            process.stdout.write(compiler.toString(settings.stats) + '\n\n');
+
+            // 返回编译结果
+            resolve(compiler);
+        });
+    });
+}

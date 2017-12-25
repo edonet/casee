@@ -24,11 +24,6 @@ const
  */
 module.exports = babelJest.createTransformer({
     presets: [
-        [
-            resolve('babel-preset-env'), { 'modules': false }
-        ],
-        resolve('babel-preset-react'),
-        resolve('babel-preset-react-app'),
-        resolve('babel-preset-stage-3')
+        resolve('babel-preset-react-app')
     ]
 });

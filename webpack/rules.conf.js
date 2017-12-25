@@ -7,7 +7,6 @@
  ****************************************
  */
 const
-    sassImporter = require('var-importer'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     postCSSOptions = require('./postcss.conf'),
     resolve = require.resolve;
@@ -31,38 +30,19 @@ function loaderCreator(app) {
  * 输出配置项
  ****************************************
  */
-module.exports = app => {
-    let loader = loaderCreator(app),
+module.exports = settings => {
+    let loader = loaderCreator(settings),
         cssLoader = [loader('css'), loader('postcss', postCSSOptions)],
-        sassLoader = [...cssLoader, loader('sass', { importer: sassImporter({ alias: app.alias }) })];
+        sassLoader = [...cssLoader, loader('sass')];
 
-
+    // 加载器列表
     return [
         {
             test: /\.jsx?$/,
             exclude: /node_modules[\\/]+(?!webpack-dev-server)/,
             loader: 'babel-loader',
             options: {
-                compact: false,
-                presets: [
-                    [
-                        resolve('babel-preset-env'), { 'modules': false }
-                    ],
-                    resolve('babel-preset-react'),
-                    resolve('babel-preset-stage-3')
-                ],
-                plugins: [resolve('babel-plugin-transform-runtime')],
-                env: {
-                    development: {
-                        plugins: [resolve('react-hot-loader/babel')]
-                    },
-                    production: {
-                        presets: [resolve('babel-preset-react-optimize')]
-                    },
-                    test: {
-                        presets: [resolve('babel-preset-react-app')]
-                    }
-                }
+                presets: [resolve('babel-preset-react-app')]
             }
         },
         {
@@ -82,7 +62,7 @@ module.exports = app => {
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
-            exclude: /[/\\]svgx[/\\]/,
+            exclude: /[\\/]svgx[\\/]/,
             options: {
                 limit: 8192,
                 name: 'img/[name].[hash:8].[ext]'
@@ -98,7 +78,7 @@ module.exports = app => {
         },
         {
             test: /\.svgx?$/,
-            include: /[/\\]svgx[/\\]/,
+            include: /[\\/]svgx[\\/]/,
             loader: 'svgx-loader'
         },
         {

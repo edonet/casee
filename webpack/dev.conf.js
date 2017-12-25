@@ -19,7 +19,9 @@ const
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    OutputWebpackPlugin = require('./lib/output-webpack-plugin');
+    OutputWebpackPlugin = require('./lib/output-webpack-plugin'),
+    base = require('./base.conf'),
+    polyfill = require.resolve('./polyfill');
 
 
 /**
@@ -27,21 +29,22 @@ const
  * 抛出配置
  *************************************
  */
-module.exports = app => ({
+module.exports = settings => ({
+    ...base(settings),
     entry: {
         app: [
+            polyfill,
             'babel-polyfill',
             'react-hot-loader/patch',
-            'webpack-dev-server/client?' + app.publicPath,
+            'webpack-dev-server/client?' + settings.publicPath,
             'webpack/hot/only-dev-server',
-            app.entry
+            settings.entry
         ]
     },
     devtool: 'inline-source-map',
-    devServer: app.devServer,
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(app.env)
+            'process.env.NODE_ENV': JSON.stringify(settings.env)
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -53,8 +56,8 @@ module.exports = app => ({
         }),
         new ExtractTextPlugin({ disable: true }),
         new HtmlWebpackPlugin({
-            template: app.index,
-            filename: path.basename(app.index),
+            template: settings.index,
+            filename: path.basename(settings.index),
             minify: {
                 html5: true,
                 removeComments: true,
@@ -62,18 +65,18 @@ module.exports = app => ({
             }
         }),
         new OutputWebpackPlugin({
-            data: app.settings,
+            data: settings.settings,
             callback: chunk => {
 
                 // 查看目录信息
-                fs.stat(app.dist, async err => {
+                fs.stat(settings.dist, async err => {
 
                     // 获取目标路径
-                    let dir = path.resolve(app.dist, path.basename(app.index)),
+                    let dir = path.resolve(settings.dist, path.basename(settings.index)),
                         data = chunk.html.source();
 
                     // 创建目录
-                    err && await promisify(fs.mkdir)(app.dist);
+                    err && await promisify(fs.mkdir)(settings.dist);
 
                     // 生成文件
                     await promisify(fs.writeFile)(dir, data);

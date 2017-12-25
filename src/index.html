@@ -15,20 +15,6 @@
     </head>
 
     <body>
-        <script>
-
-            // 修复路由跳转导致热更新失效
-            if (process.env.NODE_ENV = 'development') {
-                let addEventListener = window.addEventListener;
-
-                window.addEventListener = (type, handler, options) => {
-                    if (type !== 'beforeunload' || handler.toString().indexOf('isUnloading') === 0) {
-                        return addEventListener(type, handler, options);
-                    }
-                };
-            }
-
-        </script>
         <div id="app"></div>
     </body>
 </html>

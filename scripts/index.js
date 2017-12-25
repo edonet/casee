@@ -23,6 +23,6 @@ switch (process.argv[2]) {
         require('./test');
         break;
     default:
-        require('./dev');
+        require('./start');
         break;
 }

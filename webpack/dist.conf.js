@@ -17,7 +17,8 @@ const
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    OutputWebpackPlugin = require('./lib/output-webpack-plugin');
+    OutputWebpackPlugin = require('./lib/output-webpack-plugin'),
+    base = require('./base.conf');
 
 
 /**
@@ -25,16 +26,16 @@ const
  * 抛出配置
  *************************************
  */
-module.exports = app => ({
+module.exports = settings => ({
+    ...base(settings),
     entry: {
         app: [
-            'babel-polyfill',
-            app.entry
+            'babel-polyfill', settings.entry
         ]
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(app.env)
+            'process.env.NODE_ENV': JSON.stringify(settings.env)
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
@@ -44,7 +45,7 @@ module.exports = app => ({
                 drop_debugger: true,
                 drop_console: true
             },
-            sourceMap: !app.isProduction
+            sourceMap: !settings.isProduction
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
@@ -56,10 +57,10 @@ module.exports = app => ({
             name: 'manifest'
         }),
         new ExtractTextPlugin('css/[name]-[contenthash].css'),
-        new OutputWebpackPlugin({ data: app.settings }),
+        new OutputWebpackPlugin({ data: settings.settings }),
         new HtmlWebpackPlugin({
-            filename: path.basename(app.index),
-            template: app.index,
+            filename: path.basename(settings.index),
+            template: settings.index,
             minify: {
                 html5: true,
                 removeComments: true,

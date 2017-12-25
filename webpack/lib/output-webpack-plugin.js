@@ -81,6 +81,11 @@ class OutputWebpackPlugin {
                 callback(null, chunk);
             });
         });
+
+        // 监听本地文件更新
+        compiler.plugin('invalid', (...args) => {
+            console.log(args);
+        });
     }
 }
 
