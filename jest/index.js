@@ -25,7 +25,7 @@ const
 module.exports = {
     rootDir: app.rootDir,
     roots: [
-        '<rootDir>/lib/', '<rootDir>/src/'
+        '<rootDir>/lib/', app.src
     ],
     testMatch: [
         '**/?(*.)(spec|test).js'
