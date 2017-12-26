@@ -7,6 +7,7 @@
  ****************************************
  */
 const
+    varImporter = require('var-importer'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     postCSSOptions = require('./postcss.conf'),
     resolve = require.resolve;
@@ -33,7 +34,8 @@ function loaderCreator(app) {
 module.exports = settings => {
     let loader = loaderCreator(settings),
         cssLoader = [loader('css'), loader('postcss', postCSSOptions)],
-        sassLoader = [...cssLoader, loader('sass')];
+        sassLoader = [...cssLoader, loader('sass', { importer: varImporter({ alias: settings.alias }) })];
+
 
     // 加载器列表
     return [

@@ -1,0 +1,80 @@
+/**
+ *****************************************
+ * Created by lifx
+ * Created on 2017-11-13 18:51:46
+ *****************************************
+ */
+@charset "utf-8";
+
+
+/**
+ *****************************************
+ * 加载依赖
+ *****************************************
+ */
+@import "./settings.js";
+@import "$$style";
+
+
+/**
+ *************************************
+ * 转换长度单元为【rem】
+ *************************************
+ */
+@function rem($size, $base: $fontSize) {
+    $len: length($size);
+
+    @if $len == 0 {
+        @return 1rem;
+    }
+
+    @if $len == 1 {
+        $unit: unit($size);
+
+        @if $unit == 'px' {
+            @return $size / $base * 1rem;
+        }
+
+        @if $unit == '' {
+            @return ($size * 1px) / $base * 1rem;
+        }
+
+        @return $size;
+    }
+
+    $res: rem(nth($size, 1), $base);
+
+    @for $idx from 2 through $len {
+        $res: append($res, rem(nth($size, $idx), $base));
+    }
+
+    @return $res;
+}
+
+
+/**
+ *************************************
+ * 屏幕密度深度
+ *************************************
+ */
+@mixin ratio($size: 2) {
+    @media only screen and (-webkit-min-device-pixel-ratio: #{$size}),
+    only screen and (min-device-pixel-ratio: #{$size}) {
+        @content;
+    }
+}
+
+
+/**
+ *****************************************
+ * 绘制圆圈
+ *****************************************
+ */
+@mixin circle($size: 10px) {
+    display: inline-block;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+}

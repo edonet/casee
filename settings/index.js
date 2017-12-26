@@ -27,6 +27,7 @@ const
         entry: dir('src/index.js'),
         index: dir('src/index.html'),
         style: dir('src/style.json'),
+        modules: [dir('node_modules')],
         alias: {},
         devServer: {}
     };
@@ -41,6 +42,16 @@ try {
     Object.assign(settings, require(cwd('settings.json')));
 } catch (err) {
     // console.error(err);
+}
+
+
+/**
+ *****************************************
+ * 添加模块路径
+ *****************************************
+ */
+if (dir() !== cwd()) {
+    settings.modules.push(cwd('node_modules'));
 }
 
 

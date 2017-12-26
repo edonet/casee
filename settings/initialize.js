@@ -30,7 +30,7 @@ module.exports = ({ cwd, dir, ...settings }) => ({
     dist: cwd(settings.dist),
     entry: cwd(settings.entry),
     index: cwd(settings.index),
-    modules: [dir('node_modules'), cwd('node_modules')],
+    modules: settings.modules,
     filename: 'js/[name].[chunkhash].js',
     publicPath: './',
     alias: {
