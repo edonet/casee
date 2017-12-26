@@ -39,6 +39,8 @@ module.exports = ({ cwd, dir, ...settings }) => ({
         selector: dir('lib/selector'),
         style: dir('lib/style'),
         $$utils: dir('lib/utils'),
+        $$component: dir('lib/utils/component'),
+        $$animate: dir('lib/utils/animate'),
         $$style: cwd(settings.style)
     },
     stats: {
