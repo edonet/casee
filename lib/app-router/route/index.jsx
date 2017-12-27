@@ -15,7 +15,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import selector from 'selector';
-import createHistory from './history';
+import createHistory from './actions';
 
 
 /**
