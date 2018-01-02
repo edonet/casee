@@ -38,6 +38,7 @@ module.exports = ({ cwd, dir, ...settings }) => ({
         sigo: dir('lib'),
         selector: dir('lib/selector'),
         style: dir('lib/style'),
+        validate: dir('lib/validate'),
         $$utils: dir('lib/utils'),
         $$component: dir('lib/utils/component'),
         $$animate: dir('lib/utils/animate'),
