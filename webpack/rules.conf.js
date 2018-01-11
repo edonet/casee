@@ -33,7 +33,7 @@ function loaderCreator(app) {
  */
 module.exports = settings => {
     let loader = loaderCreator(settings),
-        cssLoader = [loader('css'), loader('postcss', postCSSOptions)],
+        cssLoader = [loader('css', { modules: true, camelCase: true }), loader('postcss', postCSSOptions)],
         sassLoader = [...cssLoader, loader('sass', { importer: varImporter({ alias: settings.alias }) })];
 
 
