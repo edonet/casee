@@ -203,22 +203,22 @@ $paddingList: 5 10 15 20 25 30 35 40;
   * 边框样式预设
   *************************************
   */
- .bdlt, .bdh, .bd { border-left: 1px solid $borderColor; }
- .bdrt, .bdh, .bd { border-right: 1px solid $borderColor; }
- .bdtp, .bdv, .bd { border-top: 1px solid $borderColor; }
- .bdbt, .bdv, .bd { border-bottom: 1px solid $borderColor; }
+.bdlt, .bdh, .bd { border-left: 1px solid $borderColor; }
+.bdrt, .bdh, .bd { border-right: 1px solid $borderColor; }
+.bdtp, .bdv, .bd { border-top: 1px solid $borderColor; }
+.bdbt, .bdv, .bd { border-bottom: 1px solid $borderColor; }
 
- @include ratio {
-     %bd2 {
-         border: 0 solid $borderColor;
-         border-image: svgx('./bd.svgx', ( stroke: $borderColor )) 2 2 stretch;
-     }
+@include ratio {
+    %bd2 {
+        border: 0 solid $borderColor;
+        border-image: svgx('./lib/bd.svgx', ( stroke: $borderColor )) 2 2 stretch;
+    }
 
-     .bdlt, .bdh, .bd { @extend %bd2; border-left-width: 1px; }
-     .bdrt, .bdh, .bd { @extend %bd2; border-right-width: 1px; }
-     .bdtp, .bdv, .bd { @extend %bd2; border-top-width: 1px; }
-     .bdbt, .bdv, .bd { @extend %bd2; border-bottom-width: 1px; }
- };
+    .bdlt, .bdh, .bd { @extend %bd2; border-left-width: 1px; }
+    .bdrt, .bdh, .bd { @extend %bd2; border-right-width: 1px; }
+    .bdtp, .bdv, .bd { @extend %bd2; border-top-width: 1px; }
+    .bdbt, .bdv, .bd { @extend %bd2; border-bottom-width: 1px; }
+};
 
 
 /**

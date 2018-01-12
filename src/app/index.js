@@ -1,7 +1,7 @@
 /**
  *****************************************
  * Created by lifx
- * Created on 2017-11-13 15:05:41
+ * Created on 2018-01-11 11:21:45
  *****************************************
  */
 'use strict';
@@ -13,32 +13,15 @@
  *****************************************
  */
 import React from 'react';
-import * as style from 'style';
-import { AppLink, AppView } from 'sigo';
-import About from './about';
-import Icons from './icons';
-
-console.log(style);
 
 
 /**
  *****************************************
- * 定义组件
+ * App
  *****************************************
  */
-export default function App({ title = '' }) {
-    console.log('--> render app');
+export default function App() {
     return (
-        <div>
-            <AppLink path="./user"><p>Hello Orchid! @:@!</p></AppLink>
-            <AppLink path="./about"><p>Hello Orchid! @:@!</p></AppLink>
-            <AppLink path="./icons"><p>Hello Icons! @:@!</p></AppLink>
-            <AppLink path="./index"><p>Hello Orchid! @:@!</p></AppLink>
-            <AppView title="图标" path="./icons" component={ Icons } />
-            <AppView title={ title ? title + '/我' : '我' } path="./user" component={ About } />
-            <AppView title={ title ? title + '/关于' : '关于' } path="./user" component={ About } />
-            <AppView title={ title ? title + '/Index' : 'Index' } path="./index" component={ App } />
-            <AppView title={ title ? title + '/404' : '404' } component={ About } />
-        </div>
+        <div className="abs">abc</div>
     );
 }

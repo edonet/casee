@@ -1,10 +1,10 @@
 /**
  *****************************************
  * Created by lifx
- * Created on 2017-12-26 16:00:45
+ * Created on 2018-01-11 12:04:31
  *****************************************
  */
-'use strict';
+@charset "utf-8";
 
 
 /**
@@ -12,13 +12,13 @@
  * 加载依赖
  *****************************************
  */
-import { createReducer } from 'selector';
-import { UPDATE_APP_ROUTER } from './actionTypes';
-
+@import "~style/settings";
 
 /**
  *****************************************
- * 更新路由信息
+ * provider
  *****************************************
  */
-export const $router = createReducer({ type: UPDATE_APP_ROUTER });
+.container {
+    background-color: red;
+}

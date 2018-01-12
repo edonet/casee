@@ -16,7 +16,7 @@ module.exports = ({ dist, stats, devServer = {} }) => ({
     hot: true,
     hotOnly: true,
     host: 'localhost',
-    port: 10098,
+    port: 10060,
     https: false,
     disableHostCheck: true,
     contentBase: dist,

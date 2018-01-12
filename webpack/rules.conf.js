@@ -33,8 +33,8 @@ function loaderCreator(app) {
  */
 module.exports = settings => {
     let loader = loaderCreator(settings),
-        cssLoader = [loader('css', { modules: true, camelCase: true }), loader('postcss', postCSSOptions)],
-        sassLoader = [...cssLoader, loader('sass', { importer: varImporter({ alias: settings.alias }) })];
+        postcssLoader = loader('postcss', postCSSOptions),
+        sassLoader = loader('sass', { importer: varImporter({ alias: settings.alias }) });
 
 
     // 加载器列表
@@ -48,18 +48,29 @@ module.exports = settings => {
             }
         },
         {
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: sassLoader
-            })
-        },
-        {
-            test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: cssLoader
-            })
+            test: /\.s?css$/,
+            oneOf: [
+                {
+                    resourceQuery: /global/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: [
+                            loader('css', { minimize: true }),
+                            postcssLoader, sassLoader
+                        ]
+                    })
+                },
+                {
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: [
+                            resolve('./lib/precss-loader'),
+                            loader('css', { minimize: true, modules: true, camelCase: 'dashesOnly' }),
+                            postcssLoader, sassLoader
+                        ]
+                    })
+                }
+            ]
         },
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -79,7 +90,11 @@ module.exports = settings => {
             }
         },
         {
-            test: /\.svgx?$/,
+            test: /\.svgx$/,
+            loader: 'svgx-loader'
+        },
+        {
+            test: /\.svg$/,
             include: /[\\/]svgx[\\/]/,
             loader: 'svgx-loader'
         },
