@@ -26,11 +26,6 @@ import use from './index.scss';
  */
 export default class AppProvider extends Component {
 
-    /* 禁用更新 */
-    shouldComponentUpdate() {
-        return false;
-    }
-
     /* 渲染组件 */
     render() {
         return (

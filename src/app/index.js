@@ -22,6 +22,6 @@ import React from 'react';
  */
 export default function App() {
     return (
-        <div className="abs">abc</div>
+        <div className="abs">abc@!@</div>
     );
 }
