@@ -37,7 +37,6 @@ module.exports = {
         '^.+\\.css$': resolve('./cssTransform.js'),
         '^(?!.*\\.(js|jsx|css|json)$)': resolve('./fileTransform.js')
     },
-    moduleNameMapper: app.alias,
     transformIgnorePatterns: [
         'node_modules', 'git'
     ],
