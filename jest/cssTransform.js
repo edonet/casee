@@ -14,7 +14,7 @@
  */
 module.exports = {
     process() {
-        return 'module.exports = {};';
+        return 'module.exports = { __esModule: true, default: (...args) => args.join(" ") };';
     },
     getCacheKey() {
         return 'cssTransform';

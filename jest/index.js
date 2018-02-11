@@ -32,9 +32,10 @@ module.exports = {
     ],
     testEnvironment: 'jsdom',
     testURL: 'http://localhost',
+    setupTestFrameworkScriptFile: resolve('./setupTests.js'),
     transform: {
         '^.+\\.(js|jsx)$': resolve('./jsTransform.js'),
-        '^.+\\.css$': resolve('./cssTransform.js'),
+        '^.+\\.(scss|css)$': resolve('./cssTransform.js'),
         '^(?!.*\\.(js|jsx|css|json)$)': resolve('./fileTransform.js')
     },
     transformIgnorePatterns: [

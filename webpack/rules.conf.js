@@ -65,7 +65,9 @@ module.exports = settings => {
                         fallback: 'style-loader',
                         use: [
                             resolve('./lib/precss-loader'),
-                            loader('css', { minimize: true, modules: true, camelCase: 'dashesOnly' }),
+                            loader('css', {
+                                minimize: true, modules: true, localIdentName: '[local]-[hash:base64:6]'
+                            }),
                             postcssLoader, sassLoader
                         ]
                     })
