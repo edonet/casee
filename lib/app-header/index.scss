@@ -1,0 +1,88 @@
+/**
+ *****************************************
+ * Created by lifx
+ * Created on 2018-02-19 21:56:20
+ *****************************************
+ */
+@charset "utf-8";
+
+
+/**
+ *****************************************
+ * 加载依赖
+ *****************************************
+ */
+@import "~style/settings";
+
+
+/**
+ *****************************************
+ * 头部样式
+ *****************************************
+ */
+.app-header {
+    width: 100%;
+    height: $appHeaderHeight;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: $appHeaderColor;
+    background: $appHeaderBackground;
+    transform: translate(0, -100%) translateZ(0);
+    transition: transform .3s ease-in-out;
+    z-index: 99;
+
+    &.show {
+        transform: translate(0, 0) translateZ(0);
+    }
+
+    & > .app-title {
+        height: 100%;
+        line-height: $appHeaderHeight;
+        z-index: 1;
+    }
+
+    & > .app-nav-box {
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+    }
+}
+
+
+/**
+ *****************************************
+ * 返回
+ *****************************************
+ */
+.app-nav-back {
+    width: 60px;
+    height: 100%;
+}
+
+
+/**
+ *****************************************
+ * 左导航
+ *****************************************
+ */
+.app-nav-left {
+    position: absolute;
+    transition: transform .3s ease-in-out;
+
+    .has-nav-back > & {
+        transform: translate(60px, 0) translateZ(0);
+    }
+}
+
+
+/**
+ *****************************************
+ * 右导航
+ *****************************************
+ */
+.app-nav-right {
+    & > .right {
+        justify-content: flex-end;
+    }
+}

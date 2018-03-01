@@ -19,6 +19,7 @@ import User from './user';
 import About from './about';
 import Icons from './icons';
 import NoFind from './404';
+import Scroll from './scroll';
 
 console.log(style);
 
@@ -36,11 +37,13 @@ export default function App({ title = '' }) {
             <AppLink to="./about"><p>Hello About! @:@!</p></AppLink>
             <AppLink to="./icons"><p>Hello Icons! @:@!</p></AppLink>
             <AppLink to="./index"><p>Hello Orchid! @:@!</p></AppLink>
+            <AppLink to="./scroll"><p>Hello Scroll! @:@!</p></AppLink>
             <AppView title="图标" path="./icons" component={ Icons } />
-            <AppView title={ title ? title + '/我' : '我' } path="./user" component={ User } />
+            <AppView title={ title ? title + '/我' : '我' } navRight="right" path="./user" component={ User } />
             <AppView title={ title ? title + '/关于' : '关于' } path="./user" component={ About } />
-            <AppView title={ title ? title + '/Index' : 'Index' } path="./index" component={ App } />
+            <AppView title={ title ? title + '/Index' : 'Index' } navLeft="left" path="./index" component={ App } />
             <AppView title={ title ? title + '/404' : '404' } component={ NoFind } />
+            <AppView title={ title ? title + '/scroll' : 'scroll' } navLeft="left" navRight="right" path="./scroll" component={ Scroll } />
         </div>
     );
 }

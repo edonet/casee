@@ -18,6 +18,7 @@ import { createPortal } from 'react-dom';
 import { render } from '../utils/component';
 import { mount } from '../app-content';
 import { createRoute } from '../app-router';
+import { updateAppHeader } from '../app-header';
 import use from './index.scss';
 
 
@@ -122,12 +123,22 @@ export default class AppView extends Component {
     handleChange(props) {
         return (action, { method }) => {
             if (this.$$target) {
+                let { title, navBack, navLeft, navRight } = props,
+                    show = title !== undefined;
 
                 // 打印信息
-                console.log(`--> ${ this.$$route.path }:`, action, method);
+                console.log(`--> ${ this.state.path }:`, action, method);
+
+                // 更新头部
+                if (action === 'ENTER') {
+                    console.log(props);
+                    updateAppHeader({
+                        show, title, method, navBack, navLeft, navRight
+                    });
+                }
 
                 // 切换视图
-                this.$$target.className = use('app-view', 'abs box', viewAction[action][method]);
+                this.$$target.className = use('app-view', 'abs box', show && 'has-header', viewAction[action][method]);
 
                 // 更新状态
                 props.path || this.setState({ matched: action === 'ENTER' });
