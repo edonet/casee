@@ -12,13 +12,14 @@
  * 加载依赖
  *****************************************
  */
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { render } from '../utils/component';
 import { mount } from '../app-content';
 import { createRoute } from '../app-router';
 import { updateAppHeader } from '../app-header';
+import AppScroll from '../app-scroll';
 import use from './index.scss';
 
 
@@ -92,7 +93,8 @@ export default class AppView extends Component {
     /* 渲染视图 */
     render() {
         return createPortal(
-            this.$$show && render(this.props), this.$$target
+            this.$$show && <AppScroll>{ render(this.props) }</AppScroll>,
+            this.$$target
         );
     }
 
