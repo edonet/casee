@@ -16,6 +16,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import { getStore } from '../selector';
+import AppCapturer from '../app-event';
 import AppContent from '../app-content';
 import AppHeader from '../app-header';
 import use from './index.scss';
@@ -33,10 +34,10 @@ export default class AppProvider extends Component {
         return (
             <Provider store={ getStore() }>
                 <AppContainer>
-                    <div className={ use('app-provider', 'abs box ovhd') }>
+                    <AppCapturer className={ use('app-provider', 'abs box ovhd') }>
                         <AppHeader />
                         <AppContent>{ this.props.children }</AppContent>
-                    </div>
+                    </AppCapturer>
                 </AppContainer>
             </Provider>
         );
